@@ -1,3 +1,3 @@
 # Transad
 
-Readme file for TransAd
+TransAd--The future of mobile advertising
