@@ -1,3 +1,0 @@
-# Transad
-
-Initial Readme File
