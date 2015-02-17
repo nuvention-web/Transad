@@ -13,13 +13,12 @@
 
   
    
-$first ="aakash";
-$last = "mishra";
-$email1= "aakash1299@gmail.com";
+$first = $_GET["h"];
+$email1= $_GET["d"];
 
    $sql1 =<<<EOF
-      INSERT INTO click_data (first_name,last_name,email)
-      VALUES ('$first' , '$last' , '$email1');
+      INSERT INTO user_data (name,email)
+      VALUES ('$first','$email1');
 EOF;
    
    $ret1 = pg_query($db, $sql1);
