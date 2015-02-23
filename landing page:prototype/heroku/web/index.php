@@ -34,7 +34,7 @@
             <li role="presentation"><a href="about.php">About</a></li>
             <li role="presentation"><a href="register.php">Sign Up</a></li>
             <li role="presentation"><a href="eleganta/index.html">prototype_1</a></li>
-            <li role="presentation"><a href="test_yaqoob.html">prototype_2</a></li>
+            <li role="presentation"><a href="eleganta/index_2.html">prototype_2</a></li>
           </ul>
         </nav>
         <h3 class="text-muted">TransAd</h3>
