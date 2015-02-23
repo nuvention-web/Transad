@@ -1,20 +1,41 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
+
 <title>Eleganta</title>
+
 <meta charset="utf-8">
+
 <noscript>
+
 <link rel="stylesheet" href="css/5grid/core.css">
+
 <link rel="stylesheet" href="css/5grid/core-desktop.css">
+
 <link rel="stylesheet" href="css/5grid/core-1200px.css">
+
 <link rel="stylesheet" href="css/5grid/core-noscript.css">
+
 <link rel="stylesheet" href="css/style.css">
+
 <link rel="stylesheet" href="css/style-desktop.css">
+
 </noscript>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
 <script src="css/5grid/jquery.js"></script>
+
 <script src="css/5grid/init.js?use=mobile,desktop,1000px&amp;mobileUI=1&amp;mobileUI.theme=none"></script>
+
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
 <!--[if IE 9]><link rel="stylesheet" href="css/style-ie9.css"><![endif]-->
-</head>
+
+
 <body>
 <div id="wrapper">
   <div id="header-wrapper">
@@ -63,9 +84,14 @@
                 <p class="subtitle">augue praesent a lacus at urna congue rutrum</p>
                 <p><a href="#"><img src="images/ad.jpg" alt=""></a><br>
                   Welcome to <strong>Eleganta</strong>, a free responsive HTML5 website template designed by HTML5Templates.com. It features a modern blog-style design, warm color scheme, and an easily replaceable banner. And like all of our templates, it is built on HTML5 and CSS3, has full responsive support for desktops, tablets, and mobile devices, and is 100% free to use personally or commercially under the Creative Commons license. Be sure to check out our website for more awesome free HTML5 templates and follow us on Twitter for updates and new releases! Enjoy!</p>
+              </a>
+                  
                 
-             <div id="image">
-	<img id="myImage" onclick="changeImage()" src="images/ad.jpg" alt=""></a></div><br>
+             <div class = "active item" id="image">
+	             <a>
+	<img src="images/ad.jpg" id="myImage" class="img-responsive" alt="Responsive image"></a></div><br>
+	
+ 
                  <p> Vivamus consequat lorem at nisl. Nullam non wisi a sem semper eleifend. Donec mattis libero eget urna. Duis pretium velit ac mauris. Proin eu wisi suscipit nulla suscipit interdum. Aenean lectus lorem, imperdiet at, ultrices eget, ornare et, wisi. Pellentesque adipiscing purus ac magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus consequat lorem at nisl. Nullam non wisi a sem semper.</p>
               </div>
             </section>
@@ -77,7 +103,8 @@
             <ul class="style2">
               <li class="first">
                 <p class="date"><a href="#">October <b>03</b></a></p>
-                <p><a href="#"><img src="images/pics04.jpg" alt=""></a></p>
+                <div id = "pic04">
+                <p><a href="#"><img src="images/pics04.jpg" alt=""></a></p></div>
                 <p><a href="#">Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum. </a></p>
               </li>
               <li>
@@ -92,7 +119,7 @@
               </li>
               <li class="first">
                 <p class="date"><a href="#">October <b>03</b></a></p>
-                <p><a href="#"><img src="images/pics07.jpg" alt=""></a></p>
+                <p><a href="#">< id = "pics" img src="images/pics07.jpg" alt=""></a></p>
                 <p><a href="#">Donec leo, vivamus fermentum nibh in augue praesent a lacus at urna congue rutrum. </a></p>
               </li>
             </ul>
@@ -193,32 +220,131 @@
   </section>
 </div>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script language="javascript">
+<script>
+	var count = 0;
+	$(function() {
+    // run the currently selected effect
+    function runEffect() {
+      // get effect type from
+      //var selectedEffect = $( "#effectTypes" ).val();
+ 
+      // most effect types need no options passed by default
+      var options = {};
+      // some effects have required parameters
+     // if ( selectedEffect === "scale" ) {
+       // options = { percent: 0 };
+      //} else if ( selectedEffect === "size" ) {
+        //options = { to: { width: 200, height: 60 } };
+      //}
+ 
+      // run the effect
+      $( "#myImage" ).toggle("blind",options,200,change());
+    };
+    
+    
+    function change(){
+	    count = 1;
+	  $( "#image" ).html("Name<input type=\"text\" name=\"FirstName\" value=\"Mickey\" id = \"name\"><br>Email_id<input type=\"text\" name=\"FirstName\" value=\"Mickey\" id =\"email\"><br><button onclick = \"changeImage()\">Send</button><button onclick = \"changeform()\" id=\"cancelbutton\">Cancel</button>");
+	  
+   };
+   
+   function change_cancel(){
+	    count = 0;
+	  $( "#image" ).html("<img id=\"myImage\" onclick =\"change()\" class=\"img-responsive\" alt=\"Responsive image\" src=\"images/ad.jpg\" >");
+	  
+   };
+    
+    $( "#cancelbutton" ).click(function() {
+	    change_cancel();
+	    });
+   
+   
+    // set effect from select menu value
+    $( "#myImage" ).click(function() {
+	 runEffect();
+     change();
+     runEffect();
+    
+     
+     
+ 
+    }); 
+  });
+	
+		
 function changeImage() {
-	var parent = document.getElementById('image');
-    var child = document.getElementById('myImage');
+
+  var inputname = document.getElementById('name').value;
+
+  var inemail = document.getElementById('email').value;
+  
+  document.getElementById('email').value = "123";
+  var parent =  document.getElementById('image');
+  parent.innerHTML = "THANK YOU " + inputname + " YOU Will receive an email shortly";
+  
+
+   /*var child = document.getElementById('myImage');
+
+    var parent1 = document.getElementById('collapseExample');
+
+    var child1 = document.getElementById('')
+
        parent.removeChild(child);
-    $.ajax({
+
+       */
+
+    $.ajax(
+
+     {
+
                 type: "GET",
-                url: "submit_click.php" ,
-                data: { h: "michael" },
+
+                url: "submit_click.php",
+
+                data: { h: inputname , d: inemail},
+
                 success : function() { 
 
-                    // here is the code that will run on client side after running clear.php on server
 
-                    // function below reloads current page
-           
-                    var parent =document.getElementById('image');
-					var child = document.getElementById('myImage');
-					parent.removeChild(child);
-                    location.reload()
+
+                    
+
+                  
+
+                   
+
+
 
                 }
+
             });
+
            
+
             
+
             }
             
+
+function changeform_pic() {
+	
+	var collide = document.getElementById('image');
+    collide.innerHTML = "Name<input type=\"text\" name=\"FirstName\" value=\"Mickey\" id = \"name\"><br>Email_id<input type=\"text\" name=\"FirstName\" value=\"Mickey\" id =\"email\"><br><button onclick = \"changeImage()\">Send</button><button onclick = \"changeform()\" id=\"cancelbutton\">Cancel</button>" ;
+    //count = 0;
+
+  //$('#collapseExample').collapse('hide');
+  }
+
+
+  function changeform() {
+	
+	var collide = document.getElementById('image');
+    collide.innerHTML = "<a><img id=\"myImage\" class=\"img-responsive\" alt=\"Responsive image\" src=\"images/ad.jpg\" onclick=\"changeform_pic()\"></a>";
+
+    //count = 0;
+
+  //$('#collapseExample').collapse('hide');
+  }
 </script>
 
 </body>
