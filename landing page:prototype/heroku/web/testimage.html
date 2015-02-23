@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Test Image</h1>
+
+<div id="image">
+	<img id="myImage" onclick="changeImage()" src="ad2.jpg" width="100" height="180">
+</div>
+
+<p>This is how the text will go above</p>
+
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script language="javascript">
+function changeImage() {
+	var parent = document.getElementById('image');
+    var child = document.getElementById('myImage');
+       parent.removeChild(child);
+    $.ajax({
+                type: "GET",
+                url: "submit_click.php" ,
+                data: { h: "michael" },
+                success : function() { 
+
+                    // here is the code that will run on client side after running clear.php on server
+
+                    // function below reloads current page
+           
+                    var parent =document.getElementById('image');
+					var child = document.getElementById('myImage');
+					parent.removeChild(child);
+                    location.reload()
+
+                }
+            });
+           
+            
+            }
+            
+</script>
+</body>
+</html>
