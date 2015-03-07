@@ -24,6 +24,7 @@
 </noscript>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
 
 <script src="css/5grid/jquery.js"></script>
 
@@ -87,9 +88,9 @@
               </a>
                   
                 
-             <div class = "active item" id="image">
+             <div id="image">
 	             <a>
-	<img src="images/ad.jpg" id="myImage" class="img-responsive" alt="Responsive image"></a></div><br>
+	<img src="images/ad.jpg" id="myImage"></a></div><br>
 	
  
                  <p> Vivamus consequat lorem at nisl. Nullam non wisi a sem semper eleifend. Donec mattis libero eget urna. Duis pretium velit ac mauris. Proin eu wisi suscipit nulla suscipit interdum. Aenean lectus lorem, imperdiet at, ultrices eget, ornare et, wisi. Pellentesque adipiscing purus ac magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus consequat lorem at nisl. Nullam non wisi a sem semper.</p>
@@ -221,58 +222,82 @@
 </div>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script>
-	var count = 0;
-	$(function() {
+	
+  var cancel = 0;
+  
+
     // run the currently selected effect
-    function runEffect() {
-      // get effect type from
-      //var selectedEffect = $( "#effectTypes" ).val();
- 
-      // most effect types need no options passed by default
-      var options = {};
-      // some effects have required parameters
-     // if ( selectedEffect === "scale" ) {
-       // options = { percent: 0 };
-      //} else if ( selectedEffect === "size" ) {
-        //options = { to: { width: 200, height: 60 } };
-      //}
- 
-      // run the effect
-      $( "#myImage" ).toggle("blind",options,200,change());
-    };
     
-    
+    $(function() {
+   
     function change(){
-	    count = 1;
-	  $( "#image" ).html("Name<input type=\"text\" name=\"FirstName\" value=\"Mickey\" id = \"name\"><br>Email_id<input type=\"text\" name=\"FirstName\" value=\"Mickey\" id =\"email\"><br><button onclick = \"changeImage()\">Send</button><button onclick = \"changeform()\" id=\"cancelbutton\">Cancel</button>");
-	  
+
+     
+      //window.alert(count_click);
+
+      
+	    //count = 1;
+	 $( "#image" ).hide(400,function(){$(this).html('<div class="well"><div class="form-group"><label for="name">Name:</label><input type="email" class="form-control" id="name" placeholder="Enter name"></div><div class="form-group"><label for="name">Email:</label> <input type="email" class="form-control" id="email" placeholder="Enter email"></div></br><button class = "btn btn-success btn-block" onclick= "changeImage()">Send</button><button class = "btn btn-success btn-block" id="cancelbutton">Cancel</button></div>');}).show("blind");
+
+  if(cancel != 1){
+
+    $.ajax(
+
+     {
+
+                type: "GET",
+
+                url: "analysis_click.php",
+
+                success : function() { 
+                }
+
+            });
+
+  
+	  }
    };
+
    
    function change_cancel(){
-	    count = 0;
-	  $( "#image" ).html("<img id=\"myImage\" onclick =\"change()\" class=\"img-responsive\" alt=\"Responsive image\" src=\"images/ad.jpg\" >");
-	  
-   };
+    cancel = 1;
     
-    $( "#cancelbutton" ).click(function() {
-	    change_cancel();
+	    
+	  $( "#image" ).hide(500,function(){$(this).html("<a><img id=\"myImage\" class=\"img-responsive\" src=\"images/ad.jpg\" ></a>");}).show("blind");
+    
+	  
+   }
+
+
+
+    $( document ).off('click','#cancelbutton').on('click',"#cancelbutton",function() {
+      
+      change_cancel();
+
+   
 	    });
+  
    
    
     // set effect from select menu value
-    $( "#myImage" ).click(function() {
-	 runEffect();
-     change();
-     runEffect();
     
-     
-     
- 
-    }); 
-  });
+   $( document ).off('click','#myImage').on('click',"#myImage",function() {
+
+   change();
+    });
+
+   });
+   
+
+  
+   
+
+
+
 	
 		
 function changeImage() {
+  count_entry = 1;
 
   var inputname = document.getElementById('name').value;
 
@@ -280,7 +305,8 @@ function changeImage() {
   
   document.getElementById('email').value = "123";
   var parent =  document.getElementById('image');
-  parent.innerHTML = "THANK YOU " + inputname + " YOU Will receive an email shortly";
+  
+   parent.innerHTML = "<div class='well'><p>Information submitted successfully. Thank you!</p></div>";
   
 
    /*var child = document.getElementById('myImage');
@@ -293,13 +319,18 @@ function changeImage() {
 
        */
 
-    $.ajax(
+
+           
+
+            
+
+ $.ajax(
 
      {
 
                 type: "GET",
 
-                url: "submit_click.php",
+                url: "formatclick_data.php",
 
                 data: { h: inputname , d: inemail},
 
@@ -318,33 +349,30 @@ function changeImage() {
                 }
 
             });
-
-           
-
-            
-
             }
             
 
-function changeform_pic() {
+//function changeform_pic() {
 	
-	var collide = document.getElementById('image');
-    collide.innerHTML = "Name<input type=\"text\" name=\"FirstName\" value=\"Mickey\" id = \"name\"><br>Email_id<input type=\"text\" name=\"FirstName\" value=\"Mickey\" id =\"email\"><br><button onclick = \"changeImage()\">Send</button><button onclick = \"changeform()\" id=\"cancelbutton\">Cancel</button>" ;
+	//var collide = document.getElementById('image');
+    //collide.innerHTML = "Name<input type=\"text\" name=\"FirstName\" value=\"Mickey\" id = \"name\"><br>Email_id<input type=\"text\" name=\"FirstName\" value=\"Mickey\" id =\"email\"><br><button onclick = \"changeImage()\">Send</button><button onclick = \"changeform()\" id=\"cancelbutton\">Cancel</button>" ;
     //count = 0;
 
   //$('#collapseExample').collapse('hide');
-  }
+  //}
 
 
-  function changeform() {
+  //function changeform() {
+   // runEffect();
 	
-	var collide = document.getElementById('image');
-    collide.innerHTML = "<a><img id=\"myImage\" class=\"img-responsive\" alt=\"Responsive image\" src=\"images/ad.jpg\" onclick=\"changeform_pic()\"></a>";
+	//var collide = document.getElementById('image');
+    //collide.innerHTML = "<a><img id=\"myImage\" class=\"img-responsive\" alt=\"Responsive image\" src=\"images/ad.jpg\" ></a>";
 
     //count = 0;
 
   //$('#collapseExample').collapse('hide');
-  }
+  //}
+  //<div class="input-group"><span class="input-group-addon" id="basic-addon1">Name</span><input type="text" class="form-control"  aria-describedby="basic-addon1" id ="name"></div><div class="input-group"><span class="input-group-addon" id="basic-addon1">Email </span><input type="text" class="form-control"  aria-describedby="basic-addon1" id ="email"></div>
 </script>
 
 </body>
