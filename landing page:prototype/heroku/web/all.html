@@ -2684,6 +2684,13 @@ padding-bottom: 10px
         min-height: 2.65em;
         }
 
+    div.slideform {
+    padding-top: 25px;
+    padding-right: 70px;
+    padding-bottom: 25px;
+    padding-left: 70px;
+    }
+
 </style>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -2812,10 +2819,9 @@ padding-bottom: 10px
 <h2>1. The&nbsp;Sun Doesn't Compete With Oil</h2>
 <p>Oil is for cars; renewables are for electricity. The two don’t really compete. Oil is just too expensive to power the grid, even with prices well below $50 a barrel.</p><div data-view-uid="1|0_4_1_7"><div class="advert   on-mobile" id="1__0_4_1_7" data-dimensions="{&quot;mobile&quot;:[[300,250],[1,1]]}" data-ad-code="business/news/science-energy/article" data-url="/news/articles/2015-01-30/seven-reasons-cheap-oil-can-t-stop-renewables-now" data-position="box1">
 </div>
-</div>
-<p>Instead, solar competes with coal, natural gas, hydro, and nuclear power. Solar, the newest to the mix, makes up less than 1 percent of the electricity market today but will be the world’s biggest single source by 2050, according to the International Energy Agency. Demand is so strong that the biggest limit to installations this year may be the&nbsp;<a href="http://www.bloomberg.com/news/2014-08-18/solar-boom-driving-first-global-panel-shortage-since-2006.html" data-web-url="http://www.bloomberg.com/news/2014-08-18/solar-boom-driving-first-global-panel-shortage-since-2006.html">availability of panels</a>.&nbsp;</p><br/>
 
-                <div id = "delete" class = "container">
+
+<div id = "delete" class = "container">
                      <a class="btn btn-primary"  aria-expanded="false" data-toggle="collapse" href="#collapseExample" aria-controls="collapseExample">
 
            
@@ -2858,11 +2864,59 @@ padding-bottom: 10px
 
                 </div>
                 </div>
+</div>
+<p>Instead, solar competes with coal, natural gas, hydro, and nuclear power. Solar, the newest to the mix, makes up less than 1 percent of the electricity market today but will be the world’s biggest single source by 2050, according to the International Energy Agency. Demand is so strong that the biggest limit to installations this year may be the&nbsp;<a href="http://www.bloomberg.com/news/2014-08-18/solar-boom-driving-first-global-panel-shortage-since-2006.html" data-web-url="http://www.bloomberg.com/news/2014-08-18/solar-boom-driving-first-global-panel-shortage-since-2006.html">availability of panels</a>.&nbsp;</p><br/>
 
-          
+               <div id="image1">
+                 <a>
+    <img src="BloombergAd.jpeg" id="myImage1"></a></div><br>
+
 <p>“You couldn’t kill solar now if you wanted to,” says Jenny Chase, the lead solar analyst with Bloomberg New Energy Finance in London.</p>
 <h2>2.&nbsp;Electricity Prices Are&nbsp;Still Going Up</h2>
 <p>The real threat to renewables isn’t cheap oil; it’s cheap electricity. In the U.S., abundant natural gas has made power production&nbsp;exceedingly inexpensive. So why are electricity bills still going up?&nbsp;</p>
+
+<div id = "delete1">
+
+                  <div id="slideAd" class="carousel slide" data-interval="0">
+                    <!-- Carousel items -->
+                    <div class="carousel-inner">
+
+                      <div class="active item">
+                        <center><img src="BloombergAd.jpeg" id = "image_check" class="img-responsive" alt="Responsive image"></center>
+                      </div>
+
+                      <div class="item">
+                        <div class="slideform">
+
+                        <div class="input-group">
+                          <span class="input-group-addon" id="basic-addon1">Name</span>
+                          <input type="text" class="form-control"  aria-describedby="basic-addon1" id ="name">
+                        </div>
+
+                        <div class="input-group">
+                          <span class="input-group-addon" id="basic-addon1">Email</span>
+                          <input type="text" class="form-control" aria-describedby="basic-addon1" id ="email">
+                        </div>
+                        <br/>
+
+                        <center><button type="submit" onclick="confirm()" class="btn btn-lg btn-success" role="button">Send</button></center>
+                      </div>
+                    </div>
+                    
+                    <!-- Carousel nav -->
+                      <a class="left carousel-control" href="#slideAd" role="button" onclick= "changeImage1()">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a id="slideCarousel" class="right carousel-control" href="#slideAd" role="button" data-slide="next" onclick = "click_send()">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+
+                    </div>
+                  </div>
+
+                </div>
 <figure class="inline-image inline-media center ">
 
         <img class="" src="./cheap-oil_files/-1x-1.jpg" alt="" data-orientation="square">
@@ -2961,7 +3015,152 @@ padding-bottom: 10px
 
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
-    <script type="text/javascript">
+<script src="jquery.mobile.custom.min.js"></script> 
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<script>  
+$(document).ready(function() {  
+   $("#slideAd").swipeleft(function() {
+      document.getElementById("slideCarousel").click();
+    });
+   $("#slideAd").swiperight(function() {
+     
+      changeImage1();
+   });   
+});
+</script> 
+
+
+<script>
+    
+  var cancel1 = 0;
+  $(function() {
+function change(){
+
+     
+      //window.alert(count_clic    //count = 1;
+     $( "#image1" ).hide(400,function(){$(this).html('<div class="well"><div class="form-group"><label for="name">Name:</label><input type="email" class="form-control" id="name" placeholder="Enter name"></div><div class="form-group"><label for="name">Email:</label> <input type="email" class="form-control" id="email" placeholder="Enter email"></div></br><button class = "btn btn-success btn-block" onclick= "changeImage2()">Send</button><button class = "btn btn-success btn-block" id="cancelbutton">Cancel</button></div>');}).show("blind");
+
+if(cancel1 != 1){
+
+    $.ajax(
+
+     {
+
+                type: "GET",
+
+                url: "analysis_click.php",
+
+                success : function() { 
+                }
+
+            });
+
+  
+      }
+   };
+   
+
+  
+   function change_cancel(){
+    cancel1 = 1;
+    
+        
+      $( "#image1" ).hide(500,function(){$(this).html("<a><img id=\"myImage1\" class=\"img-responsive\" src=\"BloombergAd.jpeg\" ></a>");}).show("blind");
+    
+      
+   }
+
+
+
+    $( document ).off('click','#cancelbutton').on('click',"#cancelbutton",function() {
+      
+      change_cancel();
+        });
+  
+   
+   
+    // set effect from select menu value
+    
+   $( document ).off('click','#myImage1').on('click',"#myImage1",function() {
+
+   change();
+    });
+
+   });
+   
+
+function changeImage2() {
+  count_entry = 1;
+
+  var inputname = document.getElementById('name').value;
+
+  var inemail = document.getElementById('email').value;
+  
+  document.getElementById('email').value = "123";
+  var parent =  document.getElementById('image1');
+  
+   parent.innerHTML = "<div class='well'><p>Information submitted successfully. Thank you!</p></div>";
+  
+
+   /*var child = document.getElementById('myImage');
+
+    var parent1 = document.getElementById('collapseExample');
+
+    var child1 = document.getElementById('')
+
+       parent.removeChild(child);
+
+       */
+
+
+           
+
+            
+
+ $.ajax(
+
+     {
+
+                type: "GET",
+
+                url: "formatclick_data.php",
+
+                data: { h: inputname , d: inemail},
+
+                success : function() { 
+
+
+
+                    
+
+                  
+
+                   
+
+
+
+                }
+
+            });
+            }
+
+
+function changeImage1() {
+
+  var parent = document.getElementById('delete1');
+
+  var inputname = document.getElementById('name').value;
+
+  var inemail = document.getElementById('email').value;
+
+  parent.innerHTML = "";
+
+}
+
+    
+        
+
     var cancel = 0;
 
 function changeImage() {
@@ -2990,13 +3189,8 @@ function changeImage() {
 
     $.ajax(
 
-     
-
-
-
     {
-
-                type: "GET",
+              type: "GET",
 
                 url: "formatcollapse_data.php",
 
@@ -3007,11 +3201,6 @@ function changeImage() {
                 }
 
             });
-
-           
-
-            
-
             }
 
 function click_send(){
@@ -3043,8 +3232,84 @@ function click_send(){
   
 
 }
+function confirm() {
+
+  var parent = document.getElementById('delete1');
+
+  var inputname = document.getElementById('name').value;
+
+  var inemail = document.getElementById('email').value;
+
+  parent.innerHTML = "<div class='well'><p>Information submitted successfully. Thank you!</p></div>";
+
+    /*var child = document.getElementById('myImage');
+
+    var parent1 = document.getElementById('collapseExample');
+
+    var child1 = document.getElementById('')
+
+       parent.removeChild(child);
+
+       */
+
+    $.ajax(
+
+     
+
+
+
+    {
+
+                type: "GET",
+
+                url: "formatslide_data.php",
+
+                data: { h: inputname , d: inemail},
+
+                success : function() { 
+
+
+
+                    
+
+                  
+
+                   
+
+
+
+                }
+
+            });
+
+           
 
             
+
+            }
+
+function click_send(){
+    cancel += 1;
+    if(cancel < 2){
+    $.ajax(
+{
+
+                type: "GET",
+
+                url: "analysis_slide.php",
+
+                success : function() { 
+
+
+
+         }
+
+            });
+}
+
+}
+            
+
 
 </script>
 
