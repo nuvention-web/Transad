@@ -1,3 +1,3 @@
 # Transad
 
-TransAd--The future of mobile advertising
+TransAd--The future of mobile B2B advertising
